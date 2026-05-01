@@ -46,14 +46,17 @@ Aquí creas, modificas o eliminas archivos. Git no realiza cambios automáticame
 - **MODIFIED**: Archivos existentes que han sido modificados.
 
 Nota: para ver el estado de los archivos:
-```git status
+```
+git status
 ```
 
 Nota: para ver todos los commits realizados:
-```git log
+```
+git log
 ```
 Comando: para restaurar un archivo a su estado anterior (si está en seguimiento):
-```git restore nombre_archivo
+```
+git restore nombre_archivo
 ```
 
 - ¿Qué es el .gitignore?  
@@ -67,18 +70,22 @@ Permite seleccionar los archivos que se incluirán en el próximo commit.
 Es decir, Git sabe qué cambios deseas guardar en el historial.
 
 Comandos:
-```git add nombre_archivo
+```
+git add nombre_archivo
 ```
 
 Para añadir todos los archivos:
-```git add .
+```
+git add .
 ```
 Si quieres sacar un archivo de stage ejecuta este comando:
-```git restore --staged <archivo>
+```
+git restore --staged <archivo>
 ```
 
 Nota: para ver commits de forma resumida:
-```git log --oneline
+```
+git log --oneline
 ```
 ---
 
@@ -86,10 +93,12 @@ Nota: para ver commits de forma resumida:
 Aquí se guardan los cambios que están en el área de stage.
 
 Comando:
-```git commit -m "mensaje descriptivo"
+```
+git commit -m "mensaje descriptivo"
 ```
 Nota: para deshacer el último commit:
-```git reset --soft HEAD~1
+```
+git reset --soft HEAD~1
 ```
 
 Nota: ¿qué es HEAD?  
@@ -112,7 +121,8 @@ Es un puntero que indica en qué commit estás trabajando actualmente.
 4. Usar máximo 50 caracteres, siendo claro y conciso.
 
 5. Usar prefijos para mayor claridad:
-```git commit -m "<type>: <descripton>"
+```
+git commit -m "<type>: <descripton>"
 ```
 
 Prefijos:
@@ -128,7 +138,8 @@ Prefijos:
 
 6. Añadir más contexto en el cuerpo del commit cuando sea necesario, donde la primera línea será el título y desde la segunda línea
 será el cuerpo (donde si hay que aplicar reglas de puntuación)con el comando:
-```git commit
+```
+git commit
 ```
 Ejemplo:
 feat: Add login feature

@@ -710,3 +710,75 @@ Subir cambios finales:
 git push origin develop
 ```
 
+## Clase 7
+
+### ¿Qué son los Pull Request (PR)?
+
+Es una solicitud para fusionar una rama con la rama principal (ej: develop o main).
+
+Permite:
+- Revisar cambios antes de unirlos
+- Trabajar en equipo de forma segura
+
+---
+
+### ¿Cómo crear un PR?
+
+Primero subes tu rama:
+```
+git push origin nombre-rama
+```
+
+Luego vas a Github y creas el Pull Request desde la interfaz.
+
+---
+
+### Flujo de trabajo (con PR)
+
+Actualizar develop:
+```
+git checkout develop
+git fetch
+git pull origin develop
+```
+
+Ir a tu rama:
+
+```
+git checkout nombre-rama
+```
+
+Actualizar con cambios de develop:
+
+```
+git merge develop
+```
+
+Subir cambios:
+
+```
+git push origin nombre-rama
+```
+
+Luego creas el PR en Github.
+
+---
+
+### ¿Por qué usar PR?
+
+- Evita errores en el código
+- Permite revisión del equipo
+- Mejora la organización
+- Aumenta la seguridad
+
+---
+
+### Proteger el repositorio
+
+Se puede configurar Github para:
+- Obligar el uso de PR
+- No permitir merges directos
+
+Esto se hace en la configuración del repositorio.
+
+

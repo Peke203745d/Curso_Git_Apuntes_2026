@@ -276,7 +276,7 @@ git push origin <rama>
 Significa:
 - push: subir commits
 - origin: servidor (Github)
-- <rama>: rama que envías
+- rama: rama que envías
 
 ---
 
@@ -302,4 +302,144 @@ en otra computadora:
 ```
 git pull origin main
 ```
+
+## Clase 4
+
+### Git Remote
+
+Permite gestionar conexiones con repositorios remotos (Github).
+
+Comandos:
+```
+git remove -v
+```
+Muestra a qué repositorio remoto está conectado tu proyecto.
+
+```
+git remote add origin url-del-repositorio
+```
+Conecta tu repositorio local con uno en Github.
+
+```
+git remote set-url origin nueva-url
+```
+
+Cambia la URL del repositorio remoto (por ejemplo de HTTPS a SSH).
+
+---
+
+### Múltiples SSH
+
+Sirve cuando tienes más de una cuenta de Github.
+
+Cada cuenta necesita su propia clave SSH.
+
+---
+
+### Configurar múltiples SSH
+
+Generar otra clave:
+
+```
+ssh-keygen -t ed25519 -C "tu-correo@email.com" -f ~/.ssh/id_nombre
+```
+Crea una nueva clave SSH con otro nombre.
+
+Configurar archivo config:
+
+CUENTA PRINCIPAL:
+
+```
+Host github.com
+HostName github.com
+User git
+IdentityFile ~/.ssh/id_ed25519
+```
+CUENTA SECUNDARIA:
+
+```
+Host github-nombre
+HostName github.com
+User git
+IdentityFile ~/.ssh/id_nombre
+```
+Define qué clave usar para cada cuenta.
+
+Verificar:
+```
+ssh -T git@github-nombre
+```
+Verifica si la conexión con esa cuenta funciona.
+
+Clonar usando ese host:
+```
+git clone git@github-nombre:usuario/repositorio.git
+```
+Clona el repositorio usando la cuenta correcta.
+
+---
+
+### Configuración local
+
+Se aplica solo a un repositorio (sobrescribe la global).
+
+```
+git config user.name "Tu Nombre"
+git config user.email "tu@correo.com"
+```
+Define el nombre y correo solo para ese repositorio.
+
+---
+
+### Git Checkout
+
+Permite moverse entre commits o ramas.
+
+Sirve para:
+- Ver versiones antiguas
+- Recuperar archivos
+- Cambiar de rama
+
+---
+
+### Detached HEAD
+
+HEAD apunta directamente a un commit (no a una rama).
+
+- Estás viendo el pasado
+- Si haces cambios se pueden perder
+
+---
+
+### Moverse entre commits
+
+Ir a un commit:
+```
+git checkout hash-del-commit
+```
+Te lleva a una versión antigua del proyecto.
+
+Volver a la rama:
+```
+git checkout main
+```
+Regresa a la versión actual del proyecto.
+
+Guardar cambios hechos en ese estado:
+```
+git checkout hash-del-commit
+```
+Y con este comando puedes crear una nueva rama para no perder los cambios:
+```
+git checkout -b nueva-rama
+```
+---
+
+### Buenas prácticas
+
+- Hacer commit antes de usar checkout
+- No trabajar mucho en detached HEAD
+- Mantener limpio el directorio de trabajo
+- Usar checkout para aprender del historial
+
 

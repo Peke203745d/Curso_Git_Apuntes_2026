@@ -559,4 +559,154 @@ hotfix:
 - release → preparar versión
 - hotfix → arreglos urgentes
 
+## Clase 6
+
+### ¿Qué es git merge?
+
+Merge significa fusión.
+
+Permite unir dos ramas en una sola, combinando sus commits.
+
+Ejemplo:
+
+```
+git merge nombre-rama
+```
+Fusiona la rama indicada con la rama actual.
+
+---
+
+### Flag --no-ff
+
+```
+git merge --no-ff nombre-rama
+```
+
+Sirve para:
+- No hacer fast forward
+- Mantener el historial de ramas
+- Forzar un commit de merge
+
+Esto ayuda a ver claramente cuándo se unió una rama.
+
+---
+
+### ¿Qué es git fetch?
+
+```
+git fetch
+```
+
+Sirve para:
+- Ver si hay cambios en el repositorio remoto
+- Traer la información sin mezclarla
+
+Nota: No modifica tu código, solo actualiza la información.
+
+---
+
+### ¿Qué es git pull?
+
+
+```
+git pull origin nombre-rama
+```
+
+Sirve para:
+- Traer cambios del repositorio remoto
+- Aplicarlos automáticamente a tu rama
+
+Nota: Es básicamente un fetch + merge.
+
+---
+
+### ¿Qué es git push?
+
+
+```
+git push origin nombre-rama
+```
+
+Sirve para:
+- Subir tus commits al repositorio remoto
+
+Primera vez que subes una rama:
+
+```
+git push -u origin nombre-rama
+```
+Guarda la referencia para no tener que escribir origin y la rama siempre.
+
+---
+
+### Flujo de trabajo (sin Pull Request)
+
+Actualizar develop:
+```
+git checkout develop
+git fetch
+git pull origin develop
+```
+Crear o cambiar a tu rama:
+
+```
+git checkout -b nombre-rama
+```
+
+Si ya existe:
+
+```
+git checkout nombre-rama
+```
+
+Actualizar tu rama con cambios de develop:
+
+```
+git merge develop
+```
+Trabajar normalmente:
+
+```
+git add .
+git commit -m "feat: cambios realizados"
+```
+Subir tu rama:
+
+```
+git push -u origin nombre-rama
+```
+---
+
+Volver a develop y fusionar:
+
+
+```
+git checkout develop
+git fetch
+git pull origin develop
+```
+
+
+```
+git merge --no-ff nombre-rama
+```
+
+Si hay conflictos:
+- Resolver manualmente
+- Luego:
+
+```
+git add .
+git commit
+```
+Eliminar la rama:
+
+```
+git branch -D nombre-rama
+```
+Subir cambios finales:
+
+```
+git push origin develop
+```
 

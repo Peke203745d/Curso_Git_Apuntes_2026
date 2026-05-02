@@ -443,3 +443,120 @@ git checkout -b nueva-rama
 - Usar checkout para aprender del historial
 
 
+## Clase 5
+
+### ¿Qué son las ramas?
+
+Son bifurcaciones del código que permiten trabajar en paralelo sin afectar la rama principal.
+
+Sirven para:
+- Trabajar en nuevas funcionalidades
+- Probar cambios sin romper el proyecto
+- Organizar el trabajo en equipo
+
+---
+
+### Git Branch
+
+Permite gestionar las ramas del proyecto.
+```
+git branch
+```
+Muestra todas las ramas y en cuál estás (HEAD).
+```
+git branch -D nombre-rama
+```
+Elimina una rama.
+
+---
+
+### Git Checkout (con ramas)
+
+Permite moverse entre ramas.
+
+```
+git checkout nombre-rama
+```
+Cambia a otra rama.
+```
+git checkout -b nombre-rama
+```
+Crea una rama y se mueve a ella directamente.
+
+Nota: No debes tener cambios sin guardar.
+
+---
+
+### Git Checkout vs Git Switch
+
+- git checkout: comando antiguo, hace muchas cosas (ramas, commits, archivos)
+- git switch: comando nuevo, solo sirve para ramas (más seguro)
+
+Ejemplo:
+```
+git switch nombre-rama
+```
+Cambia de rama de forma más segura.
+
+---
+
+### Gitflow básico
+
+Es una forma de organizar el trabajo con ramas.
+
+Sirve para:
+- Mantener orden en el proyecto
+- Trabajar en equipo
+- Controlar versiones
+
+---
+
+### Ramas principales
+
+main
+- Contiene el código final (producción)
+
+develop
+- Donde se integran los cambios antes de pasar a main
+
+---
+
+### Ramas de apoyo
+
+feature
+- Para nuevas funcionalidades
+- Nacen de develop y vuelven a develop
+
+release
+- Para preparar versiones
+- Nacen de develop y van a main y develop
+
+hotfix
+- Para arreglos urgentes en producción
+- Nacen de main y vuelven a main y develop
+
+---
+
+### Ejemplos de nombres
+
+feature:
+- feature/login
+- feature/search-bar
+
+release:
+- release/v1.0.0
+
+hotfix:
+- hotfix/login-error
+- hotfix/security-fix
+---
+
+### Resumen
+
+- main → producción
+- develop → desarrollo
+- feature → nuevas funciones
+- release → preparar versión
+- hotfix → arreglos urgentes
+
+
